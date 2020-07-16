@@ -9,23 +9,23 @@
 /* Begin PBXBuildFile section */
 		CE47796824C03CE9002AABA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47796724C03CE9002AABA0 /* AppDelegate.swift */; };
 		CE47796A24C03CE9002AABA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47796924C03CE9002AABA0 /* SceneDelegate.swift */; };
-		CE47796C24C03CE9002AABA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47796B24C03CE9002AABA0 /* ViewController.swift */; };
 		CE47796F24C03CE9002AABA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE47796D24C03CE9002AABA0 /* Main.storyboard */; };
 		CE47797224C03CE9002AABA0 /* CoreDataTableView.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE47797024C03CE9002AABA0 /* CoreDataTableView.xcdatamodeld */; };
 		CE47797424C03CEA002AABA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE47797324C03CEA002AABA0 /* Assets.xcassets */; };
 		CE47797724C03CEA002AABA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE47797524C03CEA002AABA0 /* LaunchScreen.storyboard */; };
+		CE47798124C059E6002AABA0 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47798024C059E6002AABA0 /* ListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE47796424C03CE9002AABA0 /* CoreDataTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE47796724C03CE9002AABA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE47796924C03CE9002AABA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE47796B24C03CE9002AABA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE47796E24C03CE9002AABA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE47797124C03CE9002AABA0 /* CoreDataTableView.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataTableView.xcdatamodel; sourceTree = "<group>"; };
 		CE47797324C03CEA002AABA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE47797624C03CEA002AABA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE47797824C03CEA002AABA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE47798024C059E6002AABA0 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +60,12 @@
 			children = (
 				CE47796724C03CE9002AABA0 /* AppDelegate.swift */,
 				CE47796924C03CE9002AABA0 /* SceneDelegate.swift */,
-				CE47796B24C03CE9002AABA0 /* ViewController.swift */,
+				CE47798024C059E6002AABA0 /* ListTableViewController.swift */,
 				CE47796D24C03CE9002AABA0 /* Main.storyboard */,
+				CE47797024C03CE9002AABA0 /* CoreDataTableView.xcdatamodeld */,
 				CE47797324C03CEA002AABA0 /* Assets.xcassets */,
 				CE47797524C03CEA002AABA0 /* LaunchScreen.storyboard */,
 				CE47797824C03CEA002AABA0 /* Info.plist */,
-				CE47797024C03CE9002AABA0 /* CoreDataTableView.xcdatamodeld */,
 			);
 			path = CoreDataTableView;
 			sourceTree = "<group>";
@@ -142,9 +142,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE47797224C03CE9002AABA0 /* CoreDataTableView.xcdatamodeld in Sources */,
-				CE47796C24C03CE9002AABA0 /* ViewController.swift in Sources */,
 				CE47796824C03CE9002AABA0 /* AppDelegate.swift in Sources */,
 				CE47796A24C03CE9002AABA0 /* SceneDelegate.swift in Sources */,
+				CE47798124C059E6002AABA0 /* ListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
