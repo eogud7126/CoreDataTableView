@@ -94,6 +94,40 @@ class ListTableViewController: UITableViewController {
     }
 
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //선택된 행에 해당하는 데이터 가져옴
+        let object = self.list[indexPath.row]
+        let title = object.value(forKey: "title") as? String
+        let contents = object.value(forKey: "contents") as? String
+        
+        let alert = UIAlertController(title: "게시글 수정", message: nil, preferredStyle: .alert)
+        alert.addTextField(configurationHandler: {$0.text = title})
+        alert.addTextField(configurationHandler: {$0.text = contents})
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Save", style: .default) { (_) in
+            guard let title = alert.textFields?.first?.text, let contents = alert.textFields?.last?.text else{
+                return
+            }
+            
+            if self.edit(object: object, title: title, contents: contents) == true {
+//                self.tableView.reloadData()
+                
+                
+                //셀의 내용을 직접 수정
+                let cell = self.tableView.cellForRow(at: indexPath)
+                cell?.textLabel?.text = title
+                cell?.detailTextLabel?.text = contents
+                
+                //수정된 셀을 첫 번째 행으로 이동
+                let firstIndexPath = IndexPath(item: 0, section: 0)
+                //UI가 reload하는것보다 더 부드러워지는 듯함
+                self.tableView.moveRow(at: indexPath, to: firstIndexPath)
+            }
+            
+        })
+        self.present(alert, animated: false)
+    }
     //MARK: Core Data
     
     
@@ -104,6 +138,12 @@ class ListTableViewController: UITableViewController {
         let context = appDelegate.persistentContainer.viewContext
         //요청 객체 생성
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Board")
+        
+        //정렬 속성 설정
+        let sort = NSSortDescriptor(key: "regdate", ascending: false)
+        fetchRequest.sortDescriptors = [sort]
+        
+        
         //데이터 가져오기
         let result = try! context.fetch(fetchRequest)
         
@@ -124,7 +164,7 @@ class ListTableViewController: UITableViewController {
         //영구 저장소에 커밋되고 나면 list 프로퍼티에 추가
         do{
             try context.save()
-            self.list.append(object)
+            self.list.insert(object, at: 0)
             return true
         }catch{
             context.rollback()
@@ -144,6 +184,25 @@ class ListTableViewController: UITableViewController {
         //영구 저장소에 커밋
         do{
             try context.save()
+            return true
+        }catch{
+            context.rollback()
+            return false
+        }
+    }
+    
+    func edit(object: NSManagedObject, title: String, contents: String) -> Bool{
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        object.setValue(title, forKey: "title")
+        object.setValue(contents, forKey: "contents")
+        object.setValue(Date(), forKey: "regdate")
+        
+        do{
+            try context.save()
+            //수동 정렬
+            self.list = self.fetch()
             return true
         }catch{
             context.rollback()
